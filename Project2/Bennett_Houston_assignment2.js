@@ -41,7 +41,7 @@ var preBattle = function (mobsLeft) {
         console.log("Steel your nerves for you are about to enter the Arena!");
         console.log("");
         console.log(mobsLeft);
-        return(mobsLeft);
+        return mobsLeft;
     }
     else {
         console.log("You have defeated all the monsters in the Arena.");
@@ -50,7 +50,7 @@ var preBattle = function (mobsLeft) {
 
 };
 // Number function (While-loop)
-var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerStr, mobCount) {
+var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerStr, mobsLeft) {
 
     while (mobHP > 1){
 
@@ -69,12 +69,12 @@ var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerS
 
             }
             else{
-                console.log("MobCount =" + mobCount);
+
                 isItOver(true,mobCount);
             }
         }
         else {
-            console.log("MobCount =" + mobCount);
+
             console.log(playerName + " has defeated the " + mobName + "!");
 
             isItOver(false,mobCount);
@@ -86,37 +86,33 @@ var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerS
 
 };
 // Boolean function (Comparison)
-var isItOver = function (grokDead,mobCount) {
+var isItOver = function (grokDead,mobsLeft) {
 
-    if ((grokDead == false) && (mobCount > 0))  {
-          mobCount--;
+    if ((grokDead == false) && (mobsLeft > 0))  {
 
-          console.log("grok not dead MobCount =" + mobCount);
-          preBattle(mobCount);
+
+          preBattle(mobsLeft);
 
     }
     else {
            console.log("You fought bravely, " + playerName +", but the arena was too much for you.");
-           console.log("You have died, leaving " + mobCount + " monsters for the next guy.");
+           console.log("You have died, leaving " + mobsLeft + " monsters for the next guy.");
            getEnding("sad");
            return;
     };
 
 };
 //Array function
-var nextMob = function (mobCount) {
+var nextMob = function (mobsLeft) {
 
-    for (var i = 0, j = mobCount; i < j; i++ ) {
-           console.log("MobCount before battle:: " + mobCount);
+    for (var i = 0, j = mobsLeft; i < j; i++ ) {
+
            battleFunc(mobName[i],mobHP[i],mobStr[i],playerName,playerHP,playerStr,j);
     };
-
-
-
 };
 
 
-preBattle(mobCount);
+mobCount = preBattle(mobCount);
 
 nextMob(mobCount);
 
