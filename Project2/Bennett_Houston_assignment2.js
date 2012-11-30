@@ -16,44 +16,41 @@ var mobName = ["Giant Rat", "Gnoll","Dire Bear","Dragon"],
     mobStr = [1,10,15,20]
     mobCount = mobName.length;
 ;
+
 // String function  (String concatenation)
 var getEnding = function (ending) {
-    if ending = "sad"{
-        console.log()
-
+    if (ending = "sad"){
+        console.log("Sad Ending!")
     }
+    else
+        {
+             console.log("Happy Ending!")
+        };
 
 
 };
-// If fed Happy ending. + Grok + happy words.
-// If fed Sad ending. + Grok + sad words.
-
 // Procedure
+var preBattle = function (mobsLeft) {
 
-var preBattle = function (equipped, rested) {
-
-    if (mobCount > 0) {
+    if (mobsLeft > 0) {
         playerHP == 100;
         arenaDays ++;
+        mobsLeft--;
         console.log("Another day, another victory. You have been here for: "+ arenaDays + " days.")
         console.log("You are rested and equipped for combat " + playerName + ".");
         console.log("Steel your nerves for you are about to enter the Arena!");
         console.log("");
+        console.log(mobsLeft);
+        return(mobsLeft);
     }
     else {
         console.log("You have defeated all the monsters in the Arena.");
-        //stringFunc(happy)
+        getEnding(happy);
     }
 
 };
-
-preBattle(true,true);
-
 // Number function (While-loop)
-
-// battle code. While Mob's HP > 0 kill kill kill
-// Then goto boolean function for next battle or end.
-var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerStr) {
+var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerStr, mobCount) {
 
     while (mobHP > 1){
 
@@ -61,6 +58,7 @@ var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerS
         mobHP-=playerStr;
 
         if (mobHP > 1){
+
             console.log(mobName + " has only " + mobHP + "HP left!");
             console.log(mobName + " hits " + playerName + " for " + mobStr + " damage!");
             playerHP -= mobStr;
@@ -68,61 +66,59 @@ var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerS
                 console.log(playerName + " has only " + playerHP + "HP left!");
                 console.log("Will " + playerName + " be able to handle much more?!");
                 console.log("");
+
             }
             else{
+                console.log("MobCount =" + mobCount);
                 isItOver(true,mobCount);
             }
         }
         else {
-
+            console.log("MobCount =" + mobCount);
             console.log(playerName + " has defeated the " + mobName + "!");
 
             isItOver(false,mobCount);
         };
 
     };
+    return(mobName, mobHP, mobStr, playerName, playerHP, playerStr);
 
 
 };
-
-
-
 // Boolean function (Comparison)
-var isItOver = function (grokDead,) {
+var isItOver = function (grokDead,mobCount) {
 
     if ((grokDead == false) && (mobCount > 0))  {
-          mobCount--
-          preBattle(true,true);
+          mobCount--;
+
+          console.log("grok not dead MobCount =" + mobCount);
+          preBattle(mobCount);
 
     }
     else {
            console.log("You fought bravely, " + playerName +", but the arena was too much for you.");
-           console.log("You have died, leaving " + mobCount + "monsters for the next guy.");
-           stringFunc(sad);
-
+           console.log("You have died, leaving " + mobCount + " monsters for the next guy.");
+           getEnding("sad");
+           return;
     };
 
 };
-// Is Grok dead? Are the monsters all dead?
-// If Grok is dead. Sad ending. Call String function.
-// if Grok !dead next monster.
-// If mob's all dead. Happy ending. Call String function.
+//Array function
+var nextMob = function (mobCount) {
 
-
-// Array function  (For-loop)
-
-// For each monster, must run battle function.
-var nextMob = function () {
     for (var i = 0, j = mobCount; i < j; i++ ) {
-
-           battleFunc(mobName[i],mobHP[i],mobStr[i],playerName,playerHP,playerStr);
+           console.log("MobCount before battle:: " + mobCount);
+           battleFunc(mobName[i],mobHP[i],mobStr[i],playerName,playerHP,playerStr,j);
     };
 
 
 
 };
 
-nextMob();
+
+preBattle(mobCount);
+
+nextMob(mobCount);
 
 
 
