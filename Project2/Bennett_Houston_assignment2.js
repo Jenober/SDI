@@ -5,18 +5,21 @@
 
 
 // Player Variables
-var playerName = "Grok";
-var playerHP = 100;
-var playerStr = 15;
+var playerName = "Grok",
+    playerHP = 100,
+    playerStr = 15
+;
 // Monster Variables
-var mobName = ["Giant Rat", "Gnoll","Dire Bear"];
-var mobHP = [5,15,50]
-var mobStr = [1,10,15]
+var mobName = ["Giant Rat", "Gnoll","Dire Bear"],
+    mobHP = [5,15,50],
+    mobStr = [1,10,15]
+    mobCount = mobName.length;
+;
 
 // Procedure
 var preBattle = function (equipped, rested) {
 
-    if (equipped = true && rested = true) {
+    if ((equipped = true) && (rested = true)) {
         playerHP == 100;
         console.log("You are rested and equipped for combat " + playerName + ".");
         console.log("Steel your nerves for you are about to enter the Arena!");
@@ -34,21 +37,31 @@ var preBattle = function (equipped, rested) {
 // battle code. While Mob's HP > 0 kill kill kill
 // Then goto boolean function for next battle or end.
 
-var battleFunc (mobName, mobHP, mobStr, playerName, playerHP, playerStr) {
+var battleFunc = function (mobName, mobHP, mobStr, playerName, playerHP, playerStr) {
 
     while (mobHP > 1){
+
         console.log(playerName + " hits " + mobName + " for " + playerStr + " damage!");
         mobHP-=playerStr;
+        if (mobHP > 1){
         console.log(mobName + " has only " + mobHP + " left!");
         console.log(mobName + " hits " + playerName + " for " + mobStr + " damage!");
-        playerHP -= mobstr;
+        playerHP -= mobStr;
+        console.log(playerName + " has only " + playerHP + " left!");
+        }
+        else {
+            console.log(mobName + " has " + mobHP + "HP!");
+            console.log(playerName + " has defeated the " + mobName + "!")
+            //CALL BOOLEAN. FEED GROK NOT DEAD(FALSE), mobCount -1
+        };
 
     };
 
 
 };
 
-battleFunc(mobName[0],mobHP[0],mobStr[0])
+
+
 // Boolean function (Comparison)
 
 // Is Grok dead? Are the monsters all dead?
@@ -61,6 +74,7 @@ battleFunc(mobName[0],mobHP[0],mobStr[0])
 
 // For each monster, must run battle function.
 
+battleFunc(mobName[],mobHP[],mobStr[],playerName,playerHP,playerStr);
 
 // String function  (String concatenation)
 
