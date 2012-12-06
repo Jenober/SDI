@@ -7,6 +7,9 @@
 //Global variables
 
 var driver = {
+// METHODS:
+
+// Procedure
     "getStats": function(json){
 
         for( var i = 0; i < json.length; i++){
@@ -20,7 +23,7 @@ var driver = {
 
         }
     },
-
+// Accessor
     "isReady": function(json,name){
 
         for ( var i = 0; i < json.length; i++){
@@ -28,12 +31,13 @@ var driver = {
             var driver = json[i];
 
             for (var key in driver.driver){
+                var ready = key;
                 if (key == true){
-                   var ready = "The driver is READY!";
+
                    return ready;
                 }
                 else{
-                    ready = "The driver is NOT READY!"
+
                     return ready;
                 }
 
@@ -43,17 +47,32 @@ var driver = {
 
 
     },
+    "setReady" : function(bool,index){
 
-    "setUpgrades" : function(partsList){
-        cars[0].engineMods = partsList;
-        console.log("Your upgrades have been changed!")
+        cars[index].driver.isReady = bool;
+
+    },
+// Mutator & Function Method?
+    "setUpgrades" : function(index,partsList){
+        cars[index].engineMods = partsList;
+        // String Return
+        var changes = "Your upgrades have been changed!";
+        return changes;
+    },
+// Function Method?
+    "getUpgrades" : function(index){
+        // Array Return
+        var upgrades = cars[index].engineMods;
+        return upgrades;
 
     }
 
 };
 
-var driverReady = driver.isReady(cars,"Houston");
+
 var upgradeList = ["Exhuast","Suspension","Brakes","Window Tint"];
+var driverIndex = 0;
+var driverName = "Houston";
 
 // Functions
     //Begin method:
@@ -79,9 +98,24 @@ var raceSetup = function(racers){
 };
 */
 var startRace = function(){
+    console.log("Before we start lets get a closer look at our drivers!");
+    driver.getStats(cars);
+    console.log("");
     console.log("We're starting the race!");
 
 
+};
+
+var driverReady = function (){
+
+    var ready = driver.isReady(cars,driverName);
+
+    if (ready == true){
+        console.log(driverName+" is ready!");
+    }
+    else{
+        console.log(driverName+" is NOT ready!");
+    }
 };
 
 
@@ -89,13 +123,13 @@ var startRace = function(){
 
 
 
-
 raceSetup(cars);
-driver.getStats(cars);
+
 startRace();
-console.log(driverReady);
-console.log("BEFORE ENGINE CHANGE");
-console.log(cars[0].engineMods);
-driver.setUpgrades(upgradeList);
-console.log("AFTER ENGINE CHANGE");
-console.log(cars[0].engineMods);
+driverReady();
+
+console.log(driver.setUpgrades(driverIndex,upgradeList));
+console.log("The changes we found are as follows: ");
+console.log(driver.getUpgrades(driverIndex));
+console.log("You'll have to re-certify in order to qualify for this race.")
+console.log("");

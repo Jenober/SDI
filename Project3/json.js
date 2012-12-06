@@ -5,6 +5,7 @@
 
 
 var cars = [
+    // All the properties
     {
         "driver" : {
 
@@ -25,7 +26,7 @@ var cars = [
             "name" : "Nat",
             "skill" : "novice",
             "wins" : 0,
-            "isReady" : "True",
+            "isReady" : true,
             "cash" : 10000
         },
         "hasNOS" : "True",
@@ -40,7 +41,7 @@ var cars = [
             "name" : "Eric",
             "skill" : "novice",
             "wins" : 10,
-            "isReady" : "True",
+            "isReady" : true,
             "cash" : 100000
         },
         "hasNOS" : false,
