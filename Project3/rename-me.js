@@ -5,7 +5,7 @@
 
 
 //Global variables
-//var objCars = cars;
+
 var driver = {
 // METHODS:
 
@@ -99,13 +99,7 @@ var raceSetup = function(racers){
 
 };
 
-/*var getRacerStats = function (json){
-    var driverStats = driver.getStats(json);
-    console.log("Before getRacerStats return.")
-    return driverStats;
 
-};
-*/
 
 var beforeRace = function(){
     console.log("Before we start lets get a closer look at our drivers!");
@@ -120,8 +114,10 @@ var placeBets = function(json){
         console.log("");
         for (var key in driver.driver){
             if (key == "cash"){
-                console.log(driver.driver.name + " bets " + (driver.driver.cash / 2)+ " in cash!");
-                driver.driver.cash -= (driver.driver.cash / 2);
+                var cash = driver.driver.cash;
+                console.log(driver.driver.name + " bets " + (cash * .2)+ " in cash!");
+                cash = (Math.round(cash * .2));
+                driver.driver.cash -= (cash);
                 console.log(driver.driver.name + " has " + driver.driver.cash + " left!")
 
             }
@@ -132,18 +128,51 @@ var placeBets = function(json){
 
 
 };
+
+var raceGo = function(jsonData,index){
+
+
+    var carHP = jsonData[index].horsepower;
+
+    var carHP2 = jsonData[(index+1)].horsepower;
+
+    var carHP3 = jsonData[(index+2)].horsepower;
+
+
+    console.log("Now that the bets have been placed lets get started!")
+    console.log("AND THEY'RE OFF!!")
+    console.log("");
+
+    var winner = Math.max(carHP,carHP2,carHP3);
+    var loser = Math.min(carHP,carHP2,carHP3);
+
+    for(var i = 0; i< jsonData.length;i++){
+
+        if(jsonData[i].horsepower == winner ){
+            var winnerName = jsonData[i].driver.name;
+            var winnerCar = jsonData[i].carModel;
+            console.log(winnerName + " is the WINNER! In his "+ winnerCar+".")
+
+        }
+        else if(jsonData[i].horsepower == loser){
+            var loserName = jsonData[i].driver.name;
+            console.log(loserName + " is the LOSER!! Better luck next time pal!")
+        }
+
+    }
+
+
+
+
+ };
+
+
 var startRace = function(){
     console.log("We're starting the race!");
     console.log("Racers place your bets!");
-for (var i = 0; i < cars.length; i++){
-    while(cars[i].driver.cash > 10){
 
         placeBets(cars);
-    }
-
-}
-
-
+        raceGo(cars,driverIndex);
 
 };
 

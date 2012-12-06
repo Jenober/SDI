@@ -47,7 +47,7 @@ var cars = [
             "skill" : "novice",
             "wins" : 10,
             "isReady" : true,
-            "cash" : 100000
+            "cash" : 25000
         },
         "hasNOS" : false,
         "engineMods" : ["Headers", "Intake", "Turbo"],
