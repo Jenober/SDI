@@ -7,6 +7,7 @@
 var cars = [
     // All the properties
     {
+        //Object property
         "driver" : {
 
             "name" : "Houston",
@@ -15,9 +16,13 @@ var cars = [
             "isReady" : false,
             "cash" : 5000
         },
+        //Boolean property
         "hasNOS" : "True",
+        //Array property
         "engineMods" : ["Headers", "Intake", "Turbo"],
+        //Number property
         "horsepower" : 252,
+        //String property
         "carModel" : "BMW"
     },
     {

@@ -23,9 +23,12 @@
       <file leaf-file-name="json.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/json.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="31" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+            <state line="10" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#147#304#0" expanded="false" />
+                <element signature="e#579#732#0" expanded="false" />
+                <element signature="e#886#1212#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -34,15 +37,16 @@
       <file leaf-file-name="rename-me.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rename-me.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="849" selection-end="849" vertical-scroll-proportion="0.13595167">
+            <state line="141" column="5" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.7703928">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#150#402#0" expanded="false" />
-                <element signature="e#450#808#0" expanded="false" />
-                <element signature="e#1191#1295#0" expanded="false" />
-                <element signature="e#1484#1763#0" expanded="false" />
-                <element signature="e#1766#1928#0" expanded="false" />
-                <element signature="e#1955#2128#0" expanded="false" />
+                <element signature="e#153#404#0" expanded="false" />
+                <element signature="e#452#1009#0" expanded="false" />
+                <element signature="e#1048#1104#0" expanded="false" />
+                <element signature="e#1181#1339#0" expanded="false" />
+                <element signature="e#1396#1500#0" expanded="false" />
+                <element signature="e#1689#1968#0" expanded="false" />
+                <element signature="e#1971#2133#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -58,8 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/rename-me.js" />
         <option value="$PROJECT_DIR$/json.js" />
+        <option value="$PROJECT_DIR$/rename-me.js" />
       </list>
     </option>
   </component>
@@ -203,29 +207,35 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/json.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="31" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+        <state line="10" column="0" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#147#304#0" expanded="false" />
+            <element signature="e#579#732#0" expanded="false" />
+            <element signature="e#886#1212#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rename-me.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="849" selection-end="849" vertical-scroll-proportion="0.13595167">
+        <state line="141" column="5" selection-start="3010" selection-end="3010" vertical-scroll-proportion="0.7703928">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#150#402#0" expanded="false" />
-            <element signature="e#450#808#0" expanded="false" />
-            <element signature="e#1191#1295#0" expanded="false" />
-            <element signature="e#1484#1763#0" expanded="false" />
-            <element signature="e#1766#1928#0" expanded="false" />
-            <element signature="e#1955#2128#0" expanded="false" />
+            <element signature="e#153#404#0" expanded="false" />
+            <element signature="e#452#1009#0" expanded="false" />
+            <element signature="e#1048#1104#0" expanded="false" />
+            <element signature="e#1181#1339#0" expanded="false" />
+            <element signature="e#1396#1500#0" expanded="false" />
+            <element signature="e#1689#1968#0" expanded="false" />
+            <element signature="e#1971#2133#0" expanded="false" />
           </folding>
         </state>
       </provider>

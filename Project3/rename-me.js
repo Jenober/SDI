@@ -6,7 +6,7 @@
 
 //Global variables
 
-var driver = {
+var driver = cars
 // METHODS:
 
 // Procedure
@@ -19,7 +19,7 @@ var driver = {
             for (var key in driver.driver){
                 console.log(key + ": " + driver.driver[key]);
 
-            };
+            }
 
         }
     },
@@ -32,13 +32,21 @@ var driver = {
 
             for (var key in driver.driver){
                 var ready = key;
-                if (key == true){
+// Nested Conditional
+                if (key == "isReady"){
+                    if(driver.driver.isReady==true){
+                        ready = true;
+                        return ready;
+                    }
+                    else{
+                        return ready;
+                    }
 
-                   return ready;
+
                 }
                 else{
 
-                    return ready;
+
                 }
 
 
@@ -49,7 +57,8 @@ var driver = {
     },
     "setReady" : function(bool,index){
 
-        cars[index].driver.isReady = bool;
+        cars[index].driver["isReady"] = bool;
+
 
     },
 // Mutator & Function Method?
@@ -97,11 +106,43 @@ var raceSetup = function(racers){
 
 };
 */
-var startRace = function(){
+
+var beforeRace = function(){
     console.log("Before we start lets get a closer look at our drivers!");
     driver.getStats(cars);
     console.log("");
+}
+var placeBets = function(json){
+
+    for( var i = 0; i < json.length; i++){
+
+        var driver = json[i];
+        console.log("");
+        for (var key in driver.driver){
+            if (key == "cash"){
+                console.log(driver.driver.name + " bets " + (driver.driver.cash * .2)+ " in cash!");
+                driver.driver.cash -= (driver.driver.cash * .2);
+                console.log(driver.driver.name + " has " + driver.driver.cash + " left!")
+
+            }
+
+        }
+
+    }
+
+
+};
+var startRace = function(){
     console.log("We're starting the race!");
+    console.log("Racers place your bets!");
+for (var i = 0; i < cars.length; i++){
+    while(cars[i].driver.cash > 0){
+
+        placeBets(cars);
+    }
+
+}
+
 
 
 };
@@ -109,7 +150,7 @@ var startRace = function(){
 var driverReady = function (){
 
     var ready = driver.isReady(cars,driverName);
-
+// Conditional
     if (ready == true){
         console.log(driverName+" is ready!");
     }
@@ -124,8 +165,7 @@ var driverReady = function (){
 
 
 raceSetup(cars);
-
-startRace();
+beforeRace();
 driverReady();
 
 console.log(driver.setUpgrades(driverIndex,upgradeList));
@@ -133,3 +173,6 @@ console.log("The changes we found are as follows: ");
 console.log(driver.getUpgrades(driverIndex));
 console.log("You'll have to re-certify in order to qualify for this race.")
 console.log("");
+driver.setReady(true,driverIndex);
+driverReady();
+startRace();
