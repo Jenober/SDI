@@ -11,7 +11,7 @@ var cars = [
             "name" : "Houston",
             "skill" : "novice",
             "wins" : 2,
-            "isReady" : true,
+            "isReady" : false,
             "cash" : 5000
         },
         "hasNOS" : "True",

@@ -1,7 +1,7 @@
 // Houston Bennett
 // SDI 1211
 // Project 3
-
+// Race Day!
 
 
 //Global variables
@@ -12,9 +12,9 @@ var driver = {
         for( var i = 0; i < json.length; i++){
 
             var driver = json[i];
+            console.log("");
             for (var key in driver.driver){
-                console.log(key);
-                console.log(driver.driver[key]);
+                console.log(key + ": " + driver.driver[key]);
 
             };
 
@@ -28,11 +28,13 @@ var driver = {
             var driver = json[i];
 
             for (var key in driver.driver){
-                if (key = true){
-                   return true;
+                if (key == true){
+                   var ready = "The driver is READY!";
+                   return ready;
                 }
                 else{
-                    return false;
+                    ready = "The driver is NOT READY!"
+                    return ready;
                 }
 
 
@@ -40,22 +42,18 @@ var driver = {
         }
 
 
+    },
+
+    "setUpgrades" : function(partsList){
+        cars[0].engineMods = partsList;
+        console.log("Your upgrades have been changed!")
+
     }
 
 };
 
-//var driverStats = driver.getStats(cars);
-
-var driverReady = driver.isReady(objCar,"Houston");
-
-console.log(driverReady);
-
-var getRacer = function (json){
-
-
-};
-
-
+var driverReady = driver.isReady(cars,"Houston");
+var upgradeList = ["Exhuast","Suspension","Brakes","Window Tint"];
 
 // Functions
     //Begin method:
@@ -73,11 +71,31 @@ var raceSetup = function(racers){
 
 };
 
+/*var getRacerStats = function (json){
+    var driverStats = driver.getStats(json);
+    console.log("Before getRacerStats return.")
+    return driverStats;
 
+};
+*/
 var startRace = function(){
+    console.log("We're starting the race!");
 
 
 };
 
+
+
+
+
+
+
 raceSetup(cars);
-startRace()
+driver.getStats(cars);
+startRace();
+console.log(driverReady);
+console.log("BEFORE ENGINE CHANGE");
+console.log(cars[0].engineMods);
+driver.setUpgrades(upgradeList);
+console.log("AFTER ENGINE CHANGE");
+console.log(cars[0].engineMods);
