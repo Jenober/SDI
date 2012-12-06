@@ -5,8 +5,8 @@
 
 
 //Global variables
-
-var driver = cars
+//var objCars = cars;
+var driver = {
 // METHODS:
 
 // Procedure
@@ -120,8 +120,8 @@ var placeBets = function(json){
         console.log("");
         for (var key in driver.driver){
             if (key == "cash"){
-                console.log(driver.driver.name + " bets " + (driver.driver.cash * .2)+ " in cash!");
-                driver.driver.cash -= (driver.driver.cash * .2);
+                console.log(driver.driver.name + " bets " + (driver.driver.cash / 2)+ " in cash!");
+                driver.driver.cash -= (driver.driver.cash / 2);
                 console.log(driver.driver.name + " has " + driver.driver.cash + " left!")
 
             }
@@ -136,7 +136,7 @@ var startRace = function(){
     console.log("We're starting the race!");
     console.log("Racers place your bets!");
 for (var i = 0; i < cars.length; i++){
-    while(cars[i].driver.cash > 0){
+    while(cars[i].driver.cash > 10){
 
         placeBets(cars);
     }
