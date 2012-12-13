@@ -10,6 +10,6 @@ var separator = prompt("Please enter the separator you're looking for: ");
 var newseparator = prompt("Please enter the separator that you'd like to replace your previous entry with: ");
 
 
-console.log(str);
+console.log("You started with: " + str);
 var newstr = str.replace(separator, newseparator, "gi");
-console.log(newstr);
+console.log("Now you have: " + newstr);
