@@ -32,7 +32,7 @@
       <file leaf-file-name="rename-me.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rename-me.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="8" selection-start="959" selection-end="959" vertical-scroll-proportion="0.6202144">
+            <state line="42" column="5" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.5972435">
               <folding />
             </state>
           </provider>
@@ -193,7 +193,9 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/sdi.css">
@@ -212,7 +214,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rename-me.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="8" selection-start="959" selection-end="959" vertical-scroll-proportion="0.6202144">
+        <state line="42" column="5" selection-start="1218" selection-end="1218" vertical-scroll-proportion="0.5972435">
           <folding />
         </state>
       </provider>

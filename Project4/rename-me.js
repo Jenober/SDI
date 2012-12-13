@@ -6,6 +6,7 @@
  */
 var swapSeparator = function(string){
     var str = string;
+
     alert ("The string we are starting with is: " + str);
     var separator = prompt("Please enter the separator you're looking for: ");
     var newseparator = prompt("Please enter the separator that you'd like to replace your previous entry with: ");
@@ -20,16 +21,39 @@ var swapSeparator = function(string){
 /*
  Does a string follow a 123-456-7890 pattern like a phone number?
  */
+
+
+var getPhoneNum = function(){
+    var phoneNum = prompt("Please enter a phone number using the following format: xxx-xxx-xxxx");
+
+    return phoneNum;
+
+};
 var isPhoneNum = function(phonenumber){
     var phoneNum = phonenumber;
+if(phoneNum.length == 11){
 
     if(phoneNum.charAt(3) == "-" && phoneNum.charAt(7)== "-"){
         alert("You have entered the phone number properly!")
-            
+
     }else{
 
-        alert("You have entered the phone number improperly! Try again!")
+        alert("You have entered the phone number improperly!")
+
     }
+
+}else{
+    alert("The number you entered is not long enough.")
+}
+
 
 
 };
+
+var separatorString = prompt("Please enter a delineated string below.")
+swapSeparator(separatorString);
+
+
+
+isPhoneNum(getPhoneNum());
+
