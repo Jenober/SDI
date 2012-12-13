@@ -65,10 +65,19 @@ var emailCheck = function(email){
  */
 var urlCheck = function (url){
 
-  var url = url;
-  var colonLoc = url.indexOf(":");
+  var url = url.toLowerCase();
+  var colonLoc = url.indexOf(":")+ 1;
 
   var HTTP = url.substring(0,colonLoc);
+
+    if (HTTP == http: | HTTP == https:){
+        alert("You entered the address correctly.");
+
+    }
+   else{
+
+        alert("You entered the address wrong.");
+    }
 
   alert(HTTP);
 };
@@ -85,5 +94,7 @@ swapSeparator(separatorString);
 isPhoneNum(getPhoneNum());
 
 emailCheck(prompt("Enter an email address below: "));
+
+urlCheck(prompt("Enter a web address starting with http:// or https://"));
 
 
