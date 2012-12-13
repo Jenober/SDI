@@ -93,7 +93,21 @@ var stringToNum = function(stringNum){
 
     return(number);
 
-}
+};
+
+/*
+ Format a number to use a specific number of decimal places, as for money: 2.1 → 2.10
+ */
+
+var formatPlaces = function (decimal){
+
+    var number = parseFloat(decimal,10);
+    var figures = number.toPrecision(3);
+
+    alert(figures);
+
+};
+
 
 
 
@@ -110,6 +124,10 @@ urlCheck(prompt("Enter a web address starting with http:// or https://"));
 
 var numFromString = stringToNum(prompt("Enter a number to add 10 to: "));
 alert(numFromString);
+
+formatPlaces(prompt("Enter a number and I'll show it to two significant figures: "));
+
+
 
 
 
