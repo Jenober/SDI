@@ -58,7 +58,26 @@ var emailCheck = function(email){
         alert("Are you sure that was an email address?");
     }
 
-}
+};
+
+/*
+ Is the string a URL? (Does it start with http: or https:?)
+ */
+var urlCheck = function (url){
+
+  var url = url;
+  var colonLoc = url.indexOf(":");
+
+  var HTTP = url.substring(0,colonLoc);
+
+  alert(HTTP);
+};
+
+
+
+
+
+
 
 var separatorString = prompt("Please enter a delineated string below.")
 swapSeparator(separatorString);
