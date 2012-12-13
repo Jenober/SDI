@@ -70,7 +70,7 @@ var urlCheck = function (url){
 
   var HTTP = url.substring(0,colonLoc);
 
-    if (HTTP == http: | HTTP == https:){
+    if (HTTP == "http:" | HTTP == "https:"){
         alert("You entered the address correctly.");
 
     }
@@ -82,7 +82,18 @@ var urlCheck = function (url){
   alert(HTTP);
 };
 
+/*
+ Given a string version of a number such as "42", return the value as an actual Number, such as 42.
+ */
+var stringToNum = function(stringNum){
 
+    var numFromString = parseInt(stringNum,10);
+
+    var number = numFromString + 10;
+
+    return(number);
+
+}
 
 
 
@@ -96,5 +107,9 @@ isPhoneNum(getPhoneNum());
 emailCheck(prompt("Enter an email address below: "));
 
 urlCheck(prompt("Enter a web address starting with http:// or https://"));
+
+var numFromString = stringToNum(prompt("Enter a number to add 10 to: "));
+alert(numFromString);
+
 
 
