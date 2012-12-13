@@ -8,9 +8,8 @@
 
 var driver = {
 // METHODS:
-
 // Procedure
-    "getStats": function(json){
+    "getStats" : function(json){
 
         for( var i = 0; i < json.length; i++){
 
@@ -24,7 +23,7 @@ var driver = {
         }
     },
 // Accessor
-    "isReady": function(json,name){
+    "isReady" : function(json,name){
 
         for ( var i = 0; i < json.length; i++){
 
