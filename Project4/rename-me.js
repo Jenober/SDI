@@ -31,7 +31,7 @@ var getPhoneNum = function(){
 };
 var isPhoneNum = function(phonenumber){
     var phoneNum = phonenumber;
-if(phoneNum.length == 11){
+
 
     if(phoneNum.charAt(3) == "-" && phoneNum.charAt(7)== "-"){
         alert("You have entered the phone number properly!")
@@ -42,9 +42,8 @@ if(phoneNum.length == 11){
 
     }
 
-}else{
-    alert("The number you entered is not long enough.")
-}
+
+
 
 
 
