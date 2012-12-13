@@ -21,8 +21,6 @@ var swapSeparator = function(string){
 /*
  Does a string follow a 123-456-7890 pattern like a phone number?
  */
-
-
 var getPhoneNum = function(){
     var phoneNum = prompt("Please enter a phone number using the following format: xxx-xxx-xxxx");
 
@@ -42,17 +40,31 @@ var isPhoneNum = function(phonenumber){
 
     }
 
-
-
-
-
-
 };
+
+/*
+ Does a string follow an aaa@bbb.ccc pattern like an email address?
+ */
+var emailCheck = function(email){
+    var email = email;
+
+    var atLoc = email.indexOf("@");
+    var dotLoc = email.indexOf(".");
+
+    if (atLoc < dotLoc){
+        alert("You definitely entered an email address.");
+
+    }else{
+        alert("Are you sure that was an email address?");
+    }
+
+}
 
 var separatorString = prompt("Please enter a delineated string below.")
 swapSeparator(separatorString);
 
-
-
 isPhoneNum(getPhoneNum());
+
+emailCheck(prompt("Enter an email address below: "));
+
 

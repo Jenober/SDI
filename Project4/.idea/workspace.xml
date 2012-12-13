@@ -32,8 +32,13 @@
       <file leaf-file-name="rename-me.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rename-me.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="984" selection-end="984" vertical-scroll-proportion="0.39050537">
-              <folding />
+            <state line="68" column="0" selection-start="1754" selection-end="1754" vertical-scroll-proportion="0.5742726">
+              <folding>
+                <element signature="e#248#679#0" expanded="false" />
+                <element signature="e#783#908#0" expanded="false" />
+                <element signature="e#948#1193#0" expanded="false" />
+                <element signature="e#1303#1565#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -214,8 +219,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rename-me.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="984" selection-end="984" vertical-scroll-proportion="0.39050537">
-          <folding />
+        <state line="68" column="0" selection-start="1754" selection-end="1754" vertical-scroll-proportion="0.5742726">
+          <folding>
+            <element signature="e#248#679#0" expanded="false" />
+            <element signature="e#783#908#0" expanded="false" />
+            <element signature="e#948#1193#0" expanded="false" />
+            <element signature="e#1303#1565#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
