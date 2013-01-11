@@ -8,8 +8,8 @@
 
     <!-- Meta content gives the browser some information about our document -->
     <meta charset="utf-8" />
-    <meta name="description" content="Our very first HTML5 document. How exciting!"/>
-    <meta name="keywords" content="d20, char, character, creator,D&D" />
+    <meta name="description" content="My very first HTML5 Project! How exciting!"/>
+    <meta name="keywords" content="d20, char, character, creator" />
 
     <!-- Allows search engine robots to index our page in a search engine and follow
     (continue reading through) links on our page. -->
@@ -45,10 +45,10 @@
 
 <!-- Document Body -->
 <body>
-    <h1>Add a Charater</h1>
+    <h1>Add a Character</h1>
 
 
-    <form action="" method="post">
+    <form action="#" method="post">
         <!-- Basic Character Info. -->
         <fieldset>
 
@@ -67,8 +67,7 @@
                     </select>
                 </li>
                 <li><label for="charAge">Age:</label><input type="range" id="charAge" /> </li>
-                <li>
-                    <label for="charSex">Gender: </label>
+                <li>Gender:
                     <ul>
                         <li><input type="radio" checked value="Male" id="male" name="sex"/><label for="male"> Male</label> </li>
                         <li><input type="radio"  value="Female" id="female" name="sex"/><label for="female"> Female</label> </li>
@@ -94,7 +93,7 @@
         <!-- Additional Char Info -->
         <fieldset>
             <legend>Biography</legend>
-            <input type="textarea" id="charBio" />
+            <textarea placeholder="Enter your character's back story here!"></textarea>
 
         </fieldset>
     </form>
