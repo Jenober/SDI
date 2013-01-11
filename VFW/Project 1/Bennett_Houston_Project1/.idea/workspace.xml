@@ -23,7 +23,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="7" selection-start="2171" selection-end="2171" vertical-scroll-proportion="-8.75">
+            <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.625">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
               </folding>
@@ -34,7 +34,7 @@
       <file leaf-file-name="addItem.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addItem.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="5" selection-start="147" selection-end="147" vertical-scroll-proportion="0.028436018">
+            <state line="49" column="0" selection-start="1888" selection-end="1888" vertical-scroll-proportion="0.18957347">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
                 <element signature="tag#fieldset#1;tag#form#0;tag#body#0;tag#html#0" expanded="false" />
@@ -63,8 +63,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/main.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/addItem.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -228,7 +228,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="7" selection-start="2171" selection-end="2171" vertical-scroll-proportion="-8.75">
+        <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.625">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="false" />
           </folding>
@@ -237,7 +237,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/addItem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="5" selection-start="147" selection-end="147" vertical-scroll-proportion="0.028436018">
+        <state line="49" column="0" selection-start="1888" selection-end="1888" vertical-scroll-proportion="0.18957347">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="false" />
             <element signature="tag#fieldset#1;tag#form#0;tag#body#0;tag#html#0" expanded="false" />
