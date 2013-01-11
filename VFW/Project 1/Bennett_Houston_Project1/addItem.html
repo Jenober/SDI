@@ -47,11 +47,12 @@
 <body>
     <h1>Add a Charater</h1>
 
-    <!-- Basic Character Info. -->
+
     <form action="" method="post">
+        <!-- Basic Character Info. -->
         <fieldset>
 
-            <legend>Character</legend>
+            <legend>Basic Info</legend>
             <ul>
                 <li><label for="charName" >Character Name: </label><input type="text" id="charName" /> </li>
                 <li><label for="charRace">Race:  </label><input type="text" id="charRace" /> </li>
@@ -65,13 +66,23 @@
                         <option value="Giant">Giant</option>
                     </select>
                 </li>
+                <li><label for="charAge">Age:</label><input type="range" id="charAge" /> </li>
+                <li>
+                    <label for="charSex">Gender: </label>
+                    <ul>
+                        <li><input type="radio" checked value="Male" id="male" name="sex"/><label for="male"> Male</label> </li>
+                        <li><input type="radio"  value="Female" id="female" name="sex"/><label for="female"> Female</label> </li>
+                        <li><input type="radio"  value="Other" id="other" name="sex"/><label for="other"> Other</label> </li>
+                    </ul>
+                </li>
             </ul>
         </fieldset>
+        <!-- Character Attributes -->
         <fieldset>
             <legend>Attributes</legend>
             <ul>
                 <li><label for="charStr" >Strength: </label><input type="text" id="charStr" /> </li>
-                <li><label for="charCon">Consistution:  </label><input type="text" id="charCon" /> </li>
+                <li><label for="charCon">Constitution:  </label><input type="text" id="charCon" /> </li>
                 <li><label for="charDex">Dexterity:  </label><input type="text" id="charDex" /> </li>
                 <li><label for="charInt">Intelligence:  </label><input type="text" id="charInt" /> </li>
                 <li><label for="charWis">Wisdom:  </label><input type="text" id="charWis" /> </li>
@@ -80,17 +91,21 @@
             </ul>
 
         </fieldset>
+        <!-- Additional Char Info -->
         <fieldset>
             <legend>Biography</legend>
             <input type="textarea" id="charBio" />
 
         </fieldset>
     </form>
-
+<!-- Links at the bottom -->
     <footer>
-        <a href="#">Clear ALL Characters</a>
-        <a href="#">View Stored Characters</a>
-
+        <input type="submit"/>
+        <nav>
+            <a href="#">Delete ALL Characters</a>
+            <a href="#">View Stored Characters</a>
+        </nav>
     </footer>
+<input type="hidden" value="This will be a random number later." />
 </body>
 </html>

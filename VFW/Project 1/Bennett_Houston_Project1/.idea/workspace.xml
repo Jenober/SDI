@@ -23,7 +23,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="63" selection-start="2101" selection-end="2101" vertical-scroll-proportion="-6.875">
+            <state line="51" column="7" selection-start="2171" selection-end="2171" vertical-scroll-proportion="-8.75">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
               </folding>
@@ -34,9 +34,11 @@
       <file leaf-file-name="addItem.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addItem.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="28" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.2890995">
+            <state line="106" column="14" selection-start="4550" selection-end="4550" vertical-scroll-proportion="0.76303315">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
+                <element signature="tag#fieldset#1;tag#form#0;tag#body#0;tag#html#0" expanded="false" />
+                <element signature="tag#fieldset#2;tag#form#0;tag#body#0;tag#html#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -227,7 +229,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="63" selection-start="2101" selection-end="2101" vertical-scroll-proportion="-6.875">
+        <state line="51" column="7" selection-start="2171" selection-end="2171" vertical-scroll-proportion="-8.75">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="false" />
           </folding>
@@ -236,9 +238,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/addItem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="28" selection-start="2516" selection-end="2516" vertical-scroll-proportion="0.2890995">
+        <state line="106" column="14" selection-start="4550" selection-end="4550" vertical-scroll-proportion="0.76303315">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="false" />
+            <element signature="tag#fieldset#1;tag#form#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#fieldset#2;tag#form#0;tag#body#0;tag#html#0" expanded="false" />
           </folding>
         </state>
       </provider>
