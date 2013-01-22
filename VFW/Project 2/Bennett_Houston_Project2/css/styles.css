@@ -7,6 +7,7 @@ body{
     background: #808080;
 
 }
+
 #SubmitBtn{
     font-size: 16pt;
     margin: 10px 200px 10px 200px;
@@ -24,13 +25,13 @@ body{
     width: 75px;
 
 }
-
+/**
 #content{
     width: 570px;
     height: 690px;
 
 }
-
+*/
 h1{
     text-align: center;
     border: 10px solid black;

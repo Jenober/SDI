@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded",function(){
     return x;
 }
 
-    //Bring forth the dropdown box and populate it fruitfully!
+    //Bring forth the dropdown box and populate it dynamically!
 
     function createDropdown(){
         var formTag = document.getElementsByTagName("form"),
@@ -52,6 +52,76 @@ window.addEventListener("DOMContentLoaded",function(){
 
     }
 
+    function toggleController(n){
+        switch(n){
+            case "on":
+                getElement('charForm').style.display = 'none';
+                getElement('DeleteAll').style.display = 'inline';
+                getElement('ViewAll').style.display = 'none';
+                getElement('NewChar').style.display = 'inline';
+                break;
+            case 'off':
+                getElement('charForm').style.display = 'block';
+                getElement('DeleteAll').style.display = 'inline';
+                getElement('ViewAll').style.display = 'inline';
+                getElement('NewChar').style.display = 'none';
+                getElement('elements').style.display = 'none';
+                break;
+
+            default:
+                return false;
+
+        }
+    }
+
+    function getData(){
+        if(localStorage.length===0){
+            alert("There is nothing to show!")
+        }
+        else{
+
+
+        toggleController('on');
+        //Fetch local data and display.
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id","elements");
+        var makeList = document.createElement("ul");
+        createDiv.appendChild(makeList);
+        document.body.appendChild(createDiv);
+        getElement('elements').style.display = 'block';
+        for(var num = 0, len = localStorage.length; num<len;num++){
+
+            var ListItem = document.createElement("li");
+            makeList.appendChild(ListItem);
+
+            var key = localStorage.key(num);
+            var value =localStorage.getItem(key);
+            //Objectify the string from local storage.
+            var thing = JSON.parse(value);
+
+            //creating another list
+            var subList = document.createElement('ul');
+
+            ListItem.appendChild(subList);
+
+
+            for(var i in thing){
+                var makeSub = document.createElement('li');
+                subList.appendChild(makeSub);
+                var subLabel = thing[i][0]+" "+thing[i][1];
+                makeSub.innerHTML = subLabel;
+
+            }
+
+
+
+        }
+        }
+
+
+
+
+    }
 
     function saveData(){
 
@@ -81,8 +151,22 @@ window.addEventListener("DOMContentLoaded",function(){
         //Save data to local storage: Use Stringify to convert object to string
 
         localStorage.setItem(userID,JSON.stringify(formFieldValues));
+
         alert("This is your character's unique ID. Save this for later! "+ userID)
         alert("Your character has been archived!");
+        window.location.reload();
+    }
+
+    function deleteData(){
+        if(localStorage.length===0){
+            alert("There is nothing to delete!")
+        }
+        else{
+            localStorage.clear();
+            alert("All characters have been deleted!");
+            window.location.reload();
+        }
+
     }
 
 //dropdown defaults
@@ -93,13 +177,10 @@ window.addEventListener("DOMContentLoaded",function(){
 //Click events
 
     var viewLink = getElement("ViewAll");
+    viewLink.addEventListener("click", getData);
     var submitBtn = getElement("SubmitBtn");
     submitBtn.addEventListener("click",saveData);
     var deleteLink = getElement("DeleteAll");
-
-
-
-    viewLink.addEventListener("click", getData);
     deleteLink.addEventListener("click", deleteData);
 
 
