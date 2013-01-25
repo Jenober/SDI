@@ -13,6 +13,25 @@ window.addEventListener("DOMContentLoaded",function(){
 
 /** All JS must be in here. */
 
+
+//dropdown defaults
+
+    var charSizeOpt = ["Select a size","Tiny","Small","Medium","Large","Giant"],genderVal
+        ;
+    createDropdown();
+//Click events
+
+    var viewLink = getElement("ViewAll");
+    viewLink.addEventListener("click", getData);
+    var submitBtn = getElement("SubmitBtn");
+    submitBtn.addEventListener("click",validate);
+    var deleteLink = getElement("DeleteAll");
+    deleteLink.addEventListener("click", deleteData);
+
+
+
+
+
     //getElementbyID function
     function getElement(elementID){
 
@@ -75,6 +94,7 @@ window.addEventListener("DOMContentLoaded",function(){
     }
 
     function getData(){
+
         if(localStorage.length===0){
             alert("There is nothing to show!")
         }
@@ -82,6 +102,7 @@ window.addEventListener("DOMContentLoaded",function(){
 
 
         toggleController('on');
+
         //Fetch local data and display.
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id","elements");
@@ -89,9 +110,12 @@ window.addEventListener("DOMContentLoaded",function(){
         createDiv.appendChild(makeList);
         document.body.appendChild(createDiv);
         getElement('elements').style.display = 'block';
+
+        //This part loops through, dynamically creating the lists from stored data.
         for(var num = 0, len = localStorage.length; num<len;num++){
 
             var ListItem = document.createElement("li");
+            var linkList = document.createElement('li');
             makeList.appendChild(ListItem);
 
             var key = localStorage.key(num);
@@ -110,13 +134,93 @@ window.addEventListener("DOMContentLoaded",function(){
                 subList.appendChild(makeSub);
                 var subLabel = thing[i][0]+" "+thing[i][1];
                 makeSub.innerHTML = subLabel;
+                subList.appendChild(linkList);
+
+
+            }
+            var lineBreak = document.createElement('br');
+            subList.appendChild(lineBreak);
+            createLinks(localStorage.key(i), linkList); //Calls function that creates edit&delete links for the items in local storage.
+
+
+        }
+        }
+
+
+
+
+    }
+//Creates edit&delete links for the items in local storage.
+    function createLinks(key, linkList){
+
+     //edit item link
+        var editLink = document.createElement('a');
+        editLink.href = "#";
+        editLink.key = key;
+
+        var editLinkText = "Make changes?"
+
+        editLink.addEventListener("click",makeChanges);
+        editLink.innerHTML = editLinkText;
+        linkList.appendChild(editLink);
+
+     //delete item link
+        var deleteLink = document.createElement('a');
+        deleteLink.href = '#';
+        deleteLink.key = key;
+
+        var deleteLinkText = 'Trash this?';
+
+      // deleteLink.addEventListener('click', deleteChar);
+        deleteLink.innerHTML = deleteLinkText;
+        linkList.appendChild(deleteLink);
+
+    }
+
+    function makeChanges(){
+        //Acquire data from item in local storage
+        var data = localStorage.getItem(this.key);
+        var fieldValues = JSON.parse(data);
+        //Displays input form
+        toggleController('off');
+
+        //fill input boxes with data from local storage
+        getElement('charCreateDate').value = fieldValues.Date[1];
+        getElement('charName').value = fieldValues.Name[1];
+        getElement('charRace').value = fieldValues.Race[1];
+        getElement('charAge').value = fieldValues.Age[1];
+        getElement('charSize').value = fieldValues.Size[1];
+
+        var radio  = document.forms[0].sex;
+
+        for(var i =0; i <radio.length;i++){
+            if(radio[i].value == "Male" && fieldValues.Gender[1] == "Male"){
+
+                radio[i].setAttribute('checked','checked');
+            }else if (radio[i].value == 'Female' && fieldValues.Gender[1] == "Female"){
+                radio[i].setAttribute('checked', 'checked');
 
             }
 
 
+        }
+        getElement('charStr').value = fieldValues.Str[1];
+        getElement('charCon').value = fieldValues.Str[1];
+        getElement('charDex').value = fieldValues.Dex[1];
+        getElement('charInt').value = fieldValues.Int[1];
+        getElement('charWis').value = fieldValues.Wis[1];
+        getElement('charCha').value = fieldValues.Cha[1];
+        getElement('charBio').value = fieldValues.Bio[1];
 
-        }
-        }
+        //Remove original event listener
+        submitBtn.removeEventListener('click', saveData);
+
+        submitBtn.value = "Save Changes";
+
+        var editButton = getElement('SubmitBtn');
+
+        editButton.addEventListener('click',validate);
+        editButton.key = this.key;
 
 
 
@@ -134,6 +238,7 @@ window.addEventListener("DOMContentLoaded",function(){
 
         var formFieldValues = {};
 
+            formFieldValues.Date = ["Creation Date: ", getElement("charCreateDate").value];
             formFieldValues.Size = ["Size: ",getElement("charSize").value];
             formFieldValues.Name = ["Name: ",getElement('charName').value];
             formFieldValues.Race = ["Race: ",getElement('charRace').value];
@@ -143,6 +248,7 @@ window.addEventListener("DOMContentLoaded",function(){
 
             formFieldValues.Str = ["Strength: ",getElement("charStr").value];
             formFieldValues.Con = ["Constitution: ",getElement("charCon").value];
+            formFieldValues.Dex = ["Dexterity: ", getElement("charDex").value];
             formFieldValues.Int = ["Intelligence: ",getElement("charInt").value];
             formFieldValues.Wis = ["Wisdom: ",getElement("charWis").value];
             formFieldValues.Cha = ["Charisma: ",getElement('charCha').value];
@@ -169,19 +275,67 @@ window.addEventListener("DOMContentLoaded",function(){
 
     }
 
-//dropdown defaults
+    function validate(){
 
-    var charSizeOpt = ["Select a size","Tiny","Small","Medium","Large","Giant"],genderVal
-        ;
-    createDropdown();
-//Click events
+        var reqs = [
+         name = getElement('charName'),
+         race = getElement('charRace'),
+         str = getElement('charStr'),
+         con = getElement('charCon'),
+         dex = getElement('charDex'),
+         Int = getElement('charInt'),
+         wis = getElement('charWis'),
+         cha = getElement('charCha')
+        ];
+//clear the screen
+        var errorMsgArray = [];
+        name.style.border = "0px";
+        race.style.border = "0px";
+        for(x in stats){
+                stats[x].style.border = '0px';
+            }
 
-    var viewLink = getElement("ViewAll");
-    viewLink.addEventListener("click", getData);
-    var submitBtn = getElement("SubmitBtn");
-    submitBtn.addEventListener("click",saveData);
-    var deleteLink = getElement("DeleteAll");
-    deleteLink.addEventListener("click", deleteData);
+// validate name
+        if(name.value === ''){
+            var badName = "Your character needs a name!";
+            name.style.border = "1px dotted red";
+            errorMsgArray.push(badName);
+        }
+// validate race
+        if(race.value === ''){
+            var badName = "Your character needs a race!";
+            race.style.border = "1px dotted red";
+            errorMsgArray.push(badName);
+        }
+// validate stats
+        for(x in stats){
+            if (stats[x].value === ''){
+                var badStat = 'Please ensure that all stats have a value!'
+                stats[x].style.border = '1px dotted red';
+                errorMsgArray.push(badStat);
+            }
+
+        }
+
+//display errors
+
+        if(errorMsgArray.length >= 1){
+            for(var i=0, j = errorMsgArray.length; i < j; i++){
+
+                alert(errorMsgArray[i]);
+
+             }
+        }else{
+            saveData()
+
+
+        }
+
+
+
+    }
+
+
 
 
 
