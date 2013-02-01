@@ -6,6 +6,7 @@ var json = {
 
         "Date": ["Date: ", "12/12/12"],
         "Name": ['Name: ', "Darmok Un'Jalad Attinagra"],
+        'Race': ['Race: ', 'Dwarf'],
         "Size": ['Size: ', "Tiny"],
         "Age": ['Age: ', "132"],
         "Gender": ["Sex: ",'Male'],
@@ -23,6 +24,7 @@ var json = {
 
         "Date": ["Date: ", "12/12/12"],
         "Name": ['Name: ', "Trix Arfur Kitz"],
+        "Race": ['Race: ', 'Human'],
         "Size": ['Size: ', "Tiny"],
         "Age": ['Age: ', "32"],
         "Gender": ["Sex: ",'Male'],

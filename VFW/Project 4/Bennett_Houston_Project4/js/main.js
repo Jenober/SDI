@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded",function(){
 //dropdown defaults
 
     var charSizeOpt = ["Select a size","Tiny","Small","Medium","Large","Giant"],genderVal,
-        charRaceOpt = ["Select a race","Dwarf","Elf","Gnome",'Half-Elf','Half-Orc','Halfling',"Human"]
+        charRaceOpt = ["Select a race","Dwarf","Elf",'Half-Orc',"Human"]
         ;
     createDropdown();
 
@@ -130,8 +130,6 @@ window.addEventListener("DOMContentLoaded",function(){
             alert("Since there was no data available, we are showing you some default data instead.")
 
             loadDefault();
-
-
         }
         else{
             toggleController('on');
@@ -161,6 +159,7 @@ window.addEventListener("DOMContentLoaded",function(){
 
                 ListItem.appendChild(subList);
 
+               getImage(subList,thing.Race[1]);
 
                 for(var i in thing){
                     var makeSub = document.createElement('li');
@@ -184,7 +183,19 @@ window.addEventListener("DOMContentLoaded",function(){
 
     }
 
-    //Loads default data in case there is none stored.
+//Retrieves correct image for race selection.
+   function getImage(subLi,raceSelection){
+
+        var imgLi = document.createElement('li');
+        subLi.appendChild(imgLi);
+
+        var imgTag = document.createElement('img');
+        var Src = imgTag.setAttribute('src', 'images/'+ raceSelection + '.jpg')
+
+        imgLi.appendChild(imgTag);
+    }
+
+//Loads default data in case there is none stored.
     function loadDefault(){
 
         //This will load the JSON object into Local Storage
@@ -195,11 +206,6 @@ window.addEventListener("DOMContentLoaded",function(){
 
         }
         getData();
-
-
-
-
-
     }
 
 //Creates edit&delete links for the items in local storage.
