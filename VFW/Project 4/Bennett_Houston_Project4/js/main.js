@@ -41,31 +41,53 @@ window.addEventListener("DOMContentLoaded",function(){
     return x;
 }
 
+    //Display dynamic images!
+    function displayPic(){
+
+        alert('You clicked!');
+        return
+
+
+    }
+
     //Bring forth the dropdown box and populate it dynamically!
     function createDropdown(){
 
         var formTag = document.getElementsByTagName("form"),
             dropdownSize = getElement("dropdownSize"),
-            newDropdown = document.createElement("select");
-        newDropdown.setAttribute("id", "charSize");
+            dropdownRace = getElement('dropdownRace'),
+            newDropdownRace = document.createElement("select"),
+            newDropdownSize = document.createElement("select");
+
+        newDropdownRace.setAttribute("id", "charRace");
+
         for( var i = 0, x = charRaceOpt.length; i < x; i++ ){
             var Option = document.createElement("option");
             var OptTxt = charRaceOpt[i];
             Option.setAttribute("value",OptTxt);
             Option.innerHTML = OptTxt;
-            createSelect.appendChild(Option);
+            newDropdownRace.appendChild(Option);
+        };
+            dropdownRace.appendChild(newDropdownRace)
+
+            newDropdownSize.setAttribute("id", "charSize");
 
         for( var i = 0, x = charSizeOpt.length; i < x; i++ ){
              Option = document.createElement("option");
              OptTxt = charSizeOpt[i];
             Option.setAttribute("value",OptTxt);
             Option.innerHTML = OptTxt;
-            createSelect.appendChild(Option);
+            newDropdownSize.appendChild(Option);
         };
-        dropdownSize.appendChild(createSelect);
+
+        dropdownSize.appendChild(newDropdownSize);
 
 
     }
+
+    var RaceSelect = getElement('dropdownRace');
+    RaceSelect.addEventListener('click',displayPic);
+
 
 //Find radio button value
     function getRadio(){
@@ -105,55 +127,75 @@ window.addEventListener("DOMContentLoaded",function(){
     function getData(){
 
         if(localStorage.length===0){
-            alert("There is nothing to show!")
+            alert("Since there was no data available, we are showing you some default data instead.")
+
+            loadDefault();
+
+
         }
         else{
+            toggleController('on');
+
+            //Fetch local data and display.
+            var createDiv = document.createElement("div");
+            createDiv.setAttribute("id","elements");
+            var makeList = document.createElement("ul");
+            createDiv.appendChild(makeList);
+            document.body.appendChild(createDiv);
+            getElement('elements').style.display = 'block';
+
+            //This part loops through, dynamically creating the lists from stored data.
+            for(var num = 0, len = localStorage.length; num<len;num++){
+
+                var ListItem = document.createElement("li");
+                var linkList = document.createElement('li');
+                makeList.appendChild(ListItem);
+
+                var key = localStorage.key(num);
+                var value =localStorage.getItem(key);
+                //Objectify the string from local storage.
+                var thing = JSON.parse(value);
+
+                //creating another list
+                var subList = document.createElement('ul');
+
+                ListItem.appendChild(subList);
 
 
-        toggleController('on');
-
-        //Fetch local data and display.
-        var createDiv = document.createElement("div");
-        createDiv.setAttribute("id","elements");
-        var makeList = document.createElement("ul");
-        createDiv.appendChild(makeList);
-        document.body.appendChild(createDiv);
-        getElement('elements').style.display = 'block';
-
-        //This part loops through, dynamically creating the lists from stored data.
-        for(var num = 0, len = localStorage.length; num<len;num++){
-
-            var ListItem = document.createElement("li");
-            var linkList = document.createElement('li');
-            makeList.appendChild(ListItem);
-
-            var key = localStorage.key(num);
-            var value =localStorage.getItem(key);
-            //Objectify the string from local storage.
-            var thing = JSON.parse(value);
-
-            //creating another list
-            var subList = document.createElement('ul');
-
-            ListItem.appendChild(subList);
+                for(var i in thing){
+                    var makeSub = document.createElement('li');
+                    subList.appendChild(makeSub);
+                    var subLabel = thing[i][0]+" "+thing[i][1];
+                    makeSub.innerHTML = subLabel;
+                    subList.appendChild(linkList);
 
 
-            for(var i in thing){
-                var makeSub = document.createElement('li');
-                subList.appendChild(makeSub);
-                var subLabel = thing[i][0]+" "+thing[i][1];
-                makeSub.innerHTML = subLabel;
-                subList.appendChild(linkList);
+                }
+                var lineBreak = document.createElement('br');
+                subList.appendChild(lineBreak);
+                createLinks(localStorage.key(num), linkList); //Calls function that creates edit&delete links for the items in local storage.
 
 
             }
-            var lineBreak = document.createElement('br');
-            subList.appendChild(lineBreak);
-            createLinks(localStorage.key(num), linkList); //Calls function that creates edit&delete links for the items in local storage.
+        }
 
 
+
+
+    }
+
+    //Loads default data in case there is none stored.
+    function loadDefault(){
+
+        //This will load the JSON object into Local Storage
+
+        for(var x in json){
+            var userID = Math.floor(Math.random()*100001);
+            localStorage.setItem(userID,JSON.stringify(json[x]));
+
         }
-        }
+        getData();
+
 
 
 
@@ -256,13 +298,11 @@ window.addEventListener("DOMContentLoaded",function(){
         var formFieldValues = {};
 
             formFieldValues.Date = ["Creation Date: ", getElement("charCreateDate").value];
-            formFieldValues.Size = ["Size: ",getElement("charSize").value];
             formFieldValues.Name = ["Name: ",getElement('charName').value];
             formFieldValues.Race = ["Race: ",getElement('charRace').value];
+            formFieldValues.Size = ["Size: ",getElement("charSize").value];
             formFieldValues.Age = ["Age: ",getElement('charAge').value];
-
             formFieldValues.Gender = ["Gender: ", genderVal];
-
             formFieldValues.Str = ["Strength: ",getElement("charStr").value];
             formFieldValues.Con = ["Constitution: ",getElement("charCon").value];
             formFieldValues.Dex = ["Dexterity: ", getElement("charDex").value];
