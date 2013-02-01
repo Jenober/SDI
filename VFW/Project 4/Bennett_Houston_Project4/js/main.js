@@ -190,7 +190,7 @@ window.addEventListener("DOMContentLoaded",function(){
         subLi.appendChild(imgLi);
 
         var imgTag = document.createElement('img');
-        var Src = imgTag.setAttribute('src', 'images/'+ raceSelection + '.jpg')
+        var Src = imgTag.setAttribute('src', 'images/'+ raceSelection + '.png')
 
         imgLi.appendChild(imgTag);
     }
