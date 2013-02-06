@@ -13,7 +13,7 @@ body{
     margin: auto;
     padding: 10px;
     text-transform: uppercase;
-    background: url(images/bg.jpg) no-repeat center center fixed;
+    background-image: url(../images/bg.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
